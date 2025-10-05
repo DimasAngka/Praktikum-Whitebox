@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Kategori.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">whitebox-testing-a-b</a> &gt; <a href="index.source.html" class="el_package">com.praktikum.whitebox.model</a> &gt; <span class="el_source">Kategori.java</span></div><h1>Kategori.java</h1><pre class="source lang-java linenums">package com.praktikum.whitebox.model;
+
+import java.util.Objects;
+
+public class Kategori {
+    private String kode;
+    private String nama;
+    private String deskripsi;
+    private boolean aktif;
+
+<span class="fc" id="L11">    public Kategori(String kode, String nama, String deskripsi) {</span>
+<span class="fc" id="L12">        this.kode = kode;</span>
+<span class="fc" id="L13">        this.nama = nama;</span>
+<span class="fc" id="L14">        this.deskripsi = deskripsi;</span>
+<span class="fc" id="L15">        this.aktif = true;</span>
+<span class="fc" id="L16">    }</span>
+
+    // Getters and Setters
+<span class="fc" id="L19">    public String getKode() { return kode; }</span>
+<span class="fc" id="L20">    public void setKode(String kode) { this.kode = kode; }</span>
+
+<span class="fc" id="L22">    public String getNama() { return nama; }</span>
+<span class="fc" id="L23">    public void setNama(String nama) { this.nama = nama; }</span>
+
+<span class="fc" id="L25">    public String getDeskripsi() { return deskripsi; }</span>
+<span class="fc" id="L26">    public void setDeskripsi(String deskripsi) { this.deskripsi = deskripsi; }</span>
+
+<span class="fc" id="L28">    public boolean isAktif() { return aktif; }</span>
+<span class="fc" id="L29">    public void setAktif(boolean aktif) { this.aktif = aktif; }</span>
+
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        if (this == o) return true;</span>
+<span class="fc bfc" id="L34" title="All 4 branches covered.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L35">        Kategori kategori = (Kategori) o;</span>
+<span class="fc" id="L36">        return Objects.equals(kode, kategori.kode);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L41">        return Objects.hash(kode);</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L46">        return &quot;Kategori{&quot; +</span>
+                &quot;kode='&quot; + kode + '\'' +
+                &quot;, nama='&quot; + nama + '\'' +
+                &quot;, deskripsi='&quot; + deskripsi + '\'' +
+                &quot;, aktif=&quot; + aktif +
+                '}';
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

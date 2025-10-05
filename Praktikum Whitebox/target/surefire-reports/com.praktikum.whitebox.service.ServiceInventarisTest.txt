@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.praktikum.whitebox.service.ServiceInventarisTest
+-------------------------------------------------------------------------------
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.482 s - in com.praktikum.whitebox.service.ServiceInventarisTest

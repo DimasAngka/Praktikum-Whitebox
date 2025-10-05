@@ -1,0 +1,6 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+whitebox-testing-a-b,com.praktikum.whitebox.util,ValidationUtils,3,90,4,28,1,19,5,18,1,6
+whitebox-testing-a-b,com.praktikum.whitebox.model,Produk,2,185,1,21,0,43,1,31,0,21
+whitebox-testing-a-b,com.praktikum.whitebox.model,Kategori,0,85,0,6,0,20,0,15,0,12
+whitebox-testing-a-b,com.praktikum.whitebox.service,ServiceInventaris,2,130,4,16,1,36,4,15,0,9
+whitebox-testing-a-b,com.praktikum.whitebox.service,KalkulatorDiskon,0,91,1,17,0,23,1,11,0,3

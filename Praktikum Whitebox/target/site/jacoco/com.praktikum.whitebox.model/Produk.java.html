@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Produk.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">whitebox-testing-a-b</a> &gt; <a href="index.source.html" class="el_package">com.praktikum.whitebox.model</a> &gt; <span class="el_source">Produk.java</span></div><h1>Produk.java</h1><pre class="source lang-java linenums">package com.praktikum.whitebox.model;
+
+import java.util.Objects;
+
+public class Produk {
+    private final String kode;
+    private final String nama;
+    private final String kategori;
+    private double harga;
+    private int stok;
+    private int stokMinimum;
+    private boolean aktif;
+
+
+<span class="fc" id="L15">    public Produk(String kode, String nama, String kategori, double harga, int stok, int stokMinimum) {</span>
+<span class="fc" id="L16">        this.kode = kode;</span>
+<span class="fc" id="L17">        this.nama = nama;</span>
+<span class="fc" id="L18">        this.kategori = kategori;</span>
+<span class="fc" id="L19">        this.harga = harga;</span>
+<span class="fc" id="L20">        this.stok = stok;</span>
+<span class="fc" id="L21">        this.stokMinimum = stokMinimum;</span>
+<span class="fc" id="L22">        this.aktif = true;</span>
+
+<span class="fc" id="L24">    }</span>
+
+    // Getters and Setters
+<span class="fc" id="L27">    public String getKode() { return kode; }</span>
+
+<span class="fc" id="L29">    public String getNama() { return nama; }</span>
+
+<span class="fc" id="L31">    public String getKategori() { return kategori; }</span>
+
+<span class="fc" id="L33">    public double getHarga() { return harga; }</span>
+
+<span class="fc" id="L35">    public int getStok() { return stok; }</span>
+<span class="fc" id="L36">    public void setStok(int stok) { this.stok = stok; }</span>
+
+<span class="fc" id="L38">    public int getStokMinimum() { return stokMinimum; }</span>
+<span class="fc" id="L39">    public void setStokMinimum(int stokMinimum) { this.stokMinimum = stokMinimum; }</span>
+
+<span class="fc" id="L41">    public boolean isAktif() { return aktif; }</span>
+<span class="fc" id="L42">    public void setAktif(boolean aktif) { this.aktif = aktif; }</span>
+
+    // Business Logic Methods
+    public boolean isStokHabis() {
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        return stok == 0;</span>
+    }
+
+    public boolean isStokMenipis() {
+<span class="fc bfc" id="L50" title="All 4 branches covered.">        return stok &gt; 0 &amp;&amp; stok &lt;= stokMinimum;</span>
+    }
+
+    public boolean isStokAman() {
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        return stok &gt; stokMinimum;</span>
+    }
+
+    public void kurangiStok(int jumlah) {
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if (jumlah &lt;= 0) {</span>
+<span class="fc" id="L59">            throw new IllegalArgumentException(&quot;Jumlah harus positif&quot;);</span>
+        }
+<span class="fc bfc" id="L61" title="All 2 branches covered.">        if (jumlah &gt; stok) {</span>
+<span class="fc" id="L62">            throw new IllegalArgumentException(&quot;Stok tidak mencukupi&quot;);</span>
+        }
+<span class="fc" id="L64">        this.stok -= jumlah;</span>
+<span class="fc" id="L65">    }</span>
+
+    public void tambahStok(int jumlah) {
+<span class="fc bfc" id="L68" title="All 2 branches covered.">        if (jumlah &lt;= 0) {</span>
+<span class="fc" id="L69">            throw new IllegalArgumentException(&quot;Jumlah harus positif&quot;);</span>
+        }
+<span class="fc" id="L71">        this.stok += jumlah;</span>
+<span class="fc" id="L72">    }</span>
+
+    public double hitungTotalHarga(int jumlah) {
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        if (jumlah &lt; 0) {</span>
+<span class="fc" id="L76">            throw new IllegalArgumentException(&quot;Jumlah harus positif&quot;);</span>
+        }
+<span class="fc" id="L78">        return harga * jumlah;</span>
+    }
+
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L83" title="1 of 2 branches missed.">        if (this == o) return true;</span>
+<span class="fc bfc" id="L84" title="All 4 branches covered.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L85">        Produk produk = (Produk) o;</span>
+<span class="fc" id="L86">        return Objects.equals(kode, produk.kode);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="fc" id="L91">        return Objects.hash(kode);</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L96">        return &quot;Produk{&quot; +</span>
+                &quot;kode='&quot; + kode + '\'' +
+                &quot;, nama='&quot; + nama + '\'' +
+                &quot;, kategori='&quot; + kategori + '\'' +
+                &quot;, harga=&quot; + harga +
+                &quot;, stok=&quot; + stok +
+                &quot;, stokMinimum=&quot; + stokMinimum +
+                &quot;, aktif=&quot; + aktif +
+                '}';
+    }
+
+    public void setHarga(double harga) {
+<span class="fc" id="L108">        this.harga = harga;</span>
+<span class="fc" id="L109">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

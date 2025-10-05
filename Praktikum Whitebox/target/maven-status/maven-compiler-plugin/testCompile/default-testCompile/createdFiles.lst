@@ -1,0 +1,5 @@
+com\praktikum\whitebox\model\KategoriTest.class
+com\praktikum\whitebox\util\ValidationUtilsTest.class
+com\praktikum\whitebox\model\ProdukTest.class
+com\praktikum\whitebox\service\KalkulatorDiskonTest.class
+com\praktikum\whitebox\service\ServiceInventarisTest.class

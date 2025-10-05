@@ -1,0 +1,6 @@
+com\praktikum\whitebox\model\Kategori.class
+com\praktikum\whitebox\model\Produk.class
+com\praktikum\whitebox\util\ValidationUtils.class
+com\praktikum\whitebox\service\ServiceInventaris.class
+com\praktikum\whitebox\repository\RepositoryProduk.class
+com\praktikum\whitebox\service\KalkulatorDiskon.class

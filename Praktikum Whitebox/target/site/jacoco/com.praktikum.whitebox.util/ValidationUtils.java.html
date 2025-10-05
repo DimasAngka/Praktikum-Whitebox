@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ValidationUtils.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">whitebox-testing-a-b</a> &gt; <a href="index.source.html" class="el_package">com.praktikum.whitebox.util</a> &gt; <span class="el_source">ValidationUtils.java</span></div><h1>ValidationUtils.java</h1><pre class="source lang-java linenums">package com.praktikum.whitebox.util;
+
+import com.praktikum.whitebox.model.Produk;
+
+<span class="nc" id="L5">public class ValidationUtils {</span>
+
+    public static boolean isValidKodeProduk(String kode) {
+<span class="fc bfc" id="L8" title="All 4 branches covered.">        if (kode == null || kode.trim().isEmpty()) {</span>
+<span class="fc" id="L9">            return false;</span>
+        }
+
+<span class="fc" id="L12">        String kodeBersih = kode.trim();</span>
+        // Validasi kode: 3-10 karakter, alfanumerik (huruf besar/kecil dan angka)
+<span class="fc" id="L14">        return kodeBersih.matches(&quot;^[A-Za-z0-9]{3,10}$&quot;);</span>
+    }
+
+    // Validasi nama (3-100 karakter, boleh huruf, angka, spasi)
+    public static boolean isValidNama(String nama) {
+<span class="fc bfc" id="L19" title="All 4 branches covered.">        if (nama == null || nama.trim().isEmpty()) {</span>
+<span class="fc" id="L20">            return false;</span>
+        }
+
+<span class="fc" id="L23">        String namaBersih = nama.trim();</span>
+        // Hanya validasi panjang. Asumsi: regex untuk huruf/angka/spasi tidak disalin dari gambar.
+<span class="pc bpc" id="L25" title="1 of 4 branches missed.">        return namaBersih.length() &gt;= 3 &amp;&amp; namaBersih.length() &lt;= 100;</span>
+    }
+
+    // Validasi harga (harus positif)
+    public static boolean isValidHarga(double harga) {
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        return harga &gt; 0;</span>
+    }
+
+    // Validasi stok (non-negatif)
+    public static boolean isValidStok(int stok) {
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        return stok &gt;= 0;</span>
+    }
+
+    // Validasi stok minimum (non-negatif)
+    public static boolean isValidStokMinimum(int stokMinimum) {
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        return stokMinimum &gt;= 0;</span>
+    }
+
+    // Validasi produk lengkap
+    public static boolean isValidProduk(Produk produk) {
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        if (produk == null) {</span>
+<span class="fc" id="L46">            return false;</span>
+        }
+
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">        return isValidKodeProduk(produk.getKode())</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">                &amp;&amp; isValidNama(produk.getNama())</span>
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">                &amp;&amp; isValidNama(produk.getKategori()) // asumsi kategori divalidasi dengan aturan nama</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">                &amp;&amp; isValidHarga(produk.getHarga())</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">                &amp;&amp; isValidStok(produk.getStok())</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">                &amp;&amp; isValidStokMinimum(produk.getStokMinimum());</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
